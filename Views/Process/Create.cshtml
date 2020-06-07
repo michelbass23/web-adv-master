@@ -1,0 +1,46 @@
+@model EscAdv.Models.Process
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<h1>Cadastre um Processo</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control" />
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="type" class="control-label"></label>
+                <input asp-for="type" class="form-control" />
+                <span asp-validation-for="type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="petition" class="control-label"></label>
+                <input asp-for="petition" class="form-control" />
+                <span asp-validation-for="petition" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="created" class="control-label"></label>
+                <input asp-for="created" class="form-control" />
+                <span asp-validation-for="created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Cadastrar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

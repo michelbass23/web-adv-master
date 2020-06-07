@@ -1,0 +1,45 @@
+@model EscAdv.Models.Process
+
+@{
+    ViewData["Title"] = "Exclusão";
+}
+
+<h3>Deseja realmente Excluir este Processo?</h3>
+
+<hr />
+
+<div>
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.title)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.petition)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.petition)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.created)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.created)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="id" />
+        <input type="submit" value="Excluir" class="btn btn-outline-danger" />
+        <br><br>
+        <a asp-action="Index">Voltar</a>
+    </form>
+</div>

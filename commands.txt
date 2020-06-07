@@ -1,0 +1,2 @@
+dotnet aspnet-codegenerator controller -name ProcessController -m Process -dc EscAdvContext --relativeFolderPath Controllers --useDefaultLayout --referenceScriptLibraries
+

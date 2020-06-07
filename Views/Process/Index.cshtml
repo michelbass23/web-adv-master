@@ -1,0 +1,67 @@
+@model IEnumerable<EscAdv.Models.Process>
+
+@{
+    ViewData["Title"] = "Processos";
+}
+
+<h1 style="text-align: center;" >Processos cadastrados</h1>
+
+<hr>
+
+<form asp-controller="Process" asp-action="Index">
+    <p>
+        Tipo Processo: <input type="text" name="search">
+        <input type="submit" value="Buscar" />
+    </p>
+</form>
+
+<hr>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create" >Cadastrar novo Processo</a>
+</p>
+
+<br>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.petition)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.created)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.petition)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.created)
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.id">Detalhar</a> 
+                <a class="btn btn-outline-success" asp-action="Edit" asp-route-id="@item.id">Atualizar</a> 
+                <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@item.id">Excluir</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
